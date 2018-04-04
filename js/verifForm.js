@@ -86,13 +86,32 @@ function removeErrors(varThis){
 }
 
 function addEleves(nomForm){
+    var form;
+    form = $('#' + nomForm);
+
+    /*var nbChamps;
+    var i;
+    var txt;
+
+    nbChamps = form['0'].length;
+
+    for(i=0; i<nbChamps; i++){
+        txt += '<td>' + form['0']['i'].value + '</td>';
+    }
+
+    console.log(txt);*/
+
+
     $('#tableBody').append('<tr>' +
-        '<td>' + $('#' + nomForm)['0']['1'].value + '</td>' +
-        '<td>' + $('#' + nomForm)['0']['0'].value + '</td>' +
-        '<td>' + $('#' + nomForm)['0']['6'].value + '</td>' +
-        '<td>' + $('#' + nomForm)['0']['2'].value + ', ' + $('#' + nomForm)['0']['3'].value + ' ' + $('#' + nomForm)['0']['4'].value + ' ' + $('#' + nomForm)['0']['5'].value + '</td>' +
-        '<td>' + $('#' + nomForm)['0']['7'].value + '</td>' +
-        '<td>' + $('#' + nomForm)['0']['8'].value + '</td>' +
+        '<td>' + form['0']['1'].value + '</td>' +
+        '<td>' + form['0']['0'].value + '</td>' +
+        '<td>' + form['0']['6'].value + '</td>' +
+        '<td>' + form['0']['2'].value + '</td>' +
+        '<td>' + form['0']['3'].value + '</td>' +
+        '<td>' + form['0']['4'].value + '</td>' +
+        '<td>' + form['0']['5'].value + '</td>' +
+        '<td>' + form['0']['7'].value + '</td>' +
+        '<td>' + form['0']['8'].value + '</td>' +
         '</tr>');
 }
 
