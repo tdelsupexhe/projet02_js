@@ -148,10 +148,11 @@ phone.on({
 
 //*********  SUBMIT  **********
 $('#submit').on('click', function(){
-    var temp;
+    var temp = '';
+    var error_submit = $('#error_submit');
 
     // on supprime les erreurs affichées
-    $('#error_submit').removeClass('bg-danger text-white').text('');
+    error_submit.removeClass('bg-danger text-white').text('');
     $(':input').each(function(){
         removeErrors($(this));
     });
@@ -203,7 +204,7 @@ $('#submit').on('click', function(){
         addEleves('formEleves');
         clearForm();
     }else{
-        $('#error_submit').append('Tous les champs ne sont pas correctement remplis');
+        error_submit.append('Tous les champs ne sont pas correctement remplis');
     }
 });
 
@@ -221,5 +222,5 @@ $('table').on('click', 'tr', function(){
     (birthdate).val($(this)['0'].children[3].innerText);
     (email).val($(this)['0'].children[8].innerText);
     (phone).val($(this)['0'].children[9].innerText);
-})
+});
 
