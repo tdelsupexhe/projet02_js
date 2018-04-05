@@ -148,7 +148,7 @@ phone.on({
 
 //*********  SUBMIT  **********
 $('#submit').on('click', function(){
-    var temp = '';
+    var temp;
     var error_submit = $('#error_submit');
 
     // on supprime les erreurs affichées
