@@ -8,13 +8,10 @@ tableauInput.addInput('city', 'Localité', '^\\D{2,}$');
 tableauInput.addInput('birthdate', 'Date de naissance', '^\\d{2}-\\d{2}-\\d{4}$');
 tableauInput.addInput('email', 'Email', '(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])');
 tableauInput.addInput('phone', 'Numéro de téléphone', '^\\d{4}/\\d{2}.\\d{2}.\\d{2}$');
-
 var i;
 var lengthTab = tableauInput.idInput.length;
-
 for(i= 0; i<lengthTab; i++){
     var maRegex = new RegExp(tableauInput.regexInput[i]);
-
     $('#' + tableauInput.idInput[i]).on({
         'blur' : function () {
             if(!verifInputVide(tableauInput.nameInput[i], $(this))){
@@ -29,22 +26,32 @@ for(i= 0; i<lengthTab; i++){
 }*/
 
 /* ************************ ATTENTION A LA DATE ******************************************/
+var firstname = $('#firstname');
+var lastname = $('#lastname');
+var street = $('#street');
+var num = $('#num');
+var zip = $('#zip');
+var city = $('#city');
+var birthdate = $('#birthdate');
+var email = $('#email');
+var phone = $('#phone');
+
 
 
 // **********  PRENOM  **********
-$('#firstname').on({
+firstname.on({
     'blur' : function(){
         if(!verifInputVide('Prénom', $(this))) {
             verifInputRegex('^\\D{2,}$', $(this));
         }
     },
     'focus': function() {
-       removeErrors($(this));
+        removeErrors($(this));
     }
 });
 
 // **********  NOM  **********
-$('#lastname').on({
+lastname.on({
     'blur' : function(){
         if(!verifInputVide('Nom', $(this))) {
             verifInputRegex('^\\D{2,}$', $(this));
@@ -56,7 +63,7 @@ $('#lastname').on({
 });
 
 // **********  RUE  **********
-$('#street').on({
+street.on({
     'blur' : function(){
         if(!verifInputVide('Rue', $(this))) {
             verifInputRegex('^\\D{2,}$', $(this));
@@ -68,7 +75,7 @@ $('#street').on({
 });
 
 // **********  NUMERO  **********
-$('#num').on({
+num.on({
     'blur' : function(){
         if(!verifInputVide('Numéro', $(this))) {
             verifInputRegex('^[0-9]{1,3}$', $(this));
@@ -80,7 +87,7 @@ $('#num').on({
 });
 
 // **********  CODE POSTAL  **********
-$('#zip').on({
+zip.on({
     'blur' : function(){
         if(!verifInputVide('Code postal', $(this))) {
             verifInputRegex('^[0-9]{4}$', $(this));
@@ -92,7 +99,7 @@ $('#zip').on({
 });
 
 // **********  LOCALITE  **********
-$('#city').on({
+city.on({
     'blur' : function(){
         if(!verifInputVide('Localité', $(this))) {
             verifInputRegex('^\\D{2,}$', $(this));
@@ -104,7 +111,7 @@ $('#city').on({
 });
 
 // **********  DATE DE NAISSANCE  **********
-$('#birthdate').on({
+birthdate.on({
     'blur' : function(){
         if(!verifInputVide('Date de naissance', $(this))) {
             verifDate(verifInputRegex('^\\d{2}-\\d{2}-\\d{4}$', $(this)), $(this));
@@ -116,7 +123,7 @@ $('#birthdate').on({
 });
 
 // **********  EMAIL  **********
-$('#email').on({
+email.on({
     'blur' : function(){
         if(!verifInputVide('Email', $(this))) {
             verifInputRegex('(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])', $(this));
@@ -128,7 +135,7 @@ $('#email').on({
 });
 
 // **********  NUMERO DE GSM  **********
-$('#phone').on({
+phone.on({
     'blur' : function(){
         if(!verifInputVide('Numéro de téléphone', $(this))) {
             verifInputRegex('^\\d{4}/\\d{2}\.\\d{2}\.\\d{2}$', $(this));
@@ -150,40 +157,40 @@ $('#submit').on('click', function(){
     });
 
     //on verifie tous les champs inputs
-    if(!verifInputVide('Prénom', $('#firstname'))) {
-        verifInputRegex('^\\D{2,}$', $('#firstname'));
+    if(!verifInputVide('Prénom', firstname)) {
+        verifInputRegex('^\\D{2,}$', firstname);
     }
 
-    if(!verifInputVide('Nom', $('#lastname'))) {
-        verifInputRegex('^\\D{2,}$', $('#lastname'));
+    if(!verifInputVide('Nom', lastname)) {
+        verifInputRegex('^\\D{2,}$', lastname);
     }
 
-    if(!verifInputVide('Rue', $('#street'))) {
-        verifInputRegex('^\\D{2,}$', $('#street'));
+    if(!verifInputVide('Rue', street)) {
+        verifInputRegex('^\\D{2,}$', street);
     }
 
-    if(!verifInputVide('Numéro', $('#num'))) {
-        verifInputRegex('^[0-9]{1,3}$', $('#num'));
+    if(!verifInputVide('Numéro', num)) {
+        verifInputRegex('^[0-9]{1,3}$', num);
     }
 
-    if(!verifInputVide('Code postal', $('#zip'))) {
-        verifInputRegex('^[0-9]{4}$', $('#zip'));
+    if(!verifInputVide('Code postal', zip)) {
+        verifInputRegex('^[0-9]{4}$', zip);
     }
 
-    if(!verifInputVide('Localité', $('#city'))) {
-        verifInputRegex('^\\D{2,}$', $('#city'));
+    if(!verifInputVide('Localité', city)) {
+        verifInputRegex('^\\D{2,}$', city);
     }
 
-    if(!verifInputVide('Date de naissance', $('#birthdate'))) {
-        verifDate(verifInputRegex('^\\d{2}-\\d{2}-\\d{4}$', $('#birthdate')), $('#birthdate'));
+    if(!verifInputVide('Date de naissance', birthdate)) {
+        verifDate(verifInputRegex('^\\d{2}-\\d{2}-\\d{4}$', birthdate), birthdate);
     }
 
-    if(!verifInputVide('Email', $('#email'))) {
-        verifInputRegex('(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])', $('#email'));
+    if(!verifInputVide('Email', email)) {
+        verifInputRegex('(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\\])', email);
     }
 
-    if(!verifInputVide('Numéro de téléphone', $('#phone'))) {
-        verifInputRegex('^\\d{4}/\\d{2}\.\\d{2}\.\\d{2}$', $('#phone'));
+    if(!verifInputVide('Numéro de téléphone', phone)) {
+        verifInputRegex('^\\d{4}/\\d{2}\.\\d{2}\.\\d{2}$', phone);
     }
 
     //on verifie s'il y a des erreurs affichées dans le formulaire
@@ -201,28 +208,18 @@ $('#submit').on('click', function(){
 });
 
 //*********  TABLEAU  **********
+
+//on rempli le formulaire lorsqu'on clique sur un tr
 $('table').on('click', 'tr', function(){
-    var maxTd;
-    var i;
-
-   /* maxTd = $(this)['0'].children.length;
-
-    for (i=0; i<maxTd; i++){
-        console.log($(this)['0'].children[i].innerText);
-    }*/
-
-    (($('#firstname')).attr('value', $(this)['0'].children[1].innerText));
-    (($('#lastname')).attr('value', $(this)['0'].children[0].innerText));
-    (($('#street')).attr('value', $(this)['0'].children[3].innerText));
-
-    (($('#birthdate')).attr('value', $(this)['0'].children[2].innerText));
-    (($('#email')).attr('value', $(this)['0'].children[4].innerText));
-    (($('#phone')).attr('value', $(this)['0'].children[5].innerText));
-
-
-
-
-
-    //console.log($(this)['0'].children);
+    ($('#idStudent')).val($(this)['0'].children[0].innerText);
+    (firstname).val($(this)['0'].children[2].innerText);
+    (lastname).val($(this)['0'].children[1].innerText);
+    (street).val($(this)['0'].children[4].innerText);
+    (num).val($(this)['0'].children[5].innerText);
+    (zip).val($(this)['0'].children[6].innerText);
+    (city).val($(this)['0'].children[7].innerText);
+    (birthdate).val($(this)['0'].children[3].innerText);
+    (email).val($(this)['0'].children[8].innerText);
+    (phone).val($(this)['0'].children[9].innerText);
 })
 

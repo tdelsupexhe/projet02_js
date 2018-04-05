@@ -94,16 +94,14 @@ function removeErrors(varThis){
  * @param nomForm
  */
 function addEleves(nomForm) {
-    var form;
-    var idStudent;
-    var resultId;
-
-    form = $('#' + nomForm);
-    idStudent = form['0']['9'].value;
+    var form = $('#' + nomForm);
+    var idStudent = form['0']['9'].value;
+    var resultId ;
+    var tableBody = $('#tableBody');
 
     if (idStudent === '') {
-        resultId = $('#tableBody')['0'].childElementCount;
-        $('#tableBody').append('<tr id="student_' + resultId +'">' +
+        resultId = tableBody['0'].childElementCount;
+        tableBody.append('<tr id="student_' + resultId +'">' +
             '<td>' + resultId + '</td>' +
             '<td>' + form['0']['1'].value + '</td>' +
             '<td>' + form['0']['0'].value + '</td>' +
