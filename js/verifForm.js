@@ -80,29 +80,44 @@ function verifDate(date, varThis){
         }
 }
 
+/**
+ *
+ * @param varThis
+ */
 function removeErrors(varThis){
     $('#' + varThis['0'].id).removeClass('bg-danger text-white');
     $('#error_' + varThis['0'].id).text('');
 }
 
-function addEleves(nomForm){
+/**
+ *
+ * @param nomForm
+ */
+function addEleves(nomForm) {
     var form;
+    var idStudent;
+    var resultId;
+
     form = $('#' + nomForm);
+    idStudent = form['0']['9'].value;
 
-    /*var nbChamps;
-    var i;
-    var txt;
-
-    nbChamps = form['0'].length;
-
-    for(i=0; i<nbChamps; i++){
-        txt += '<td>' + form['0']['i'].value + '</td>';
-    }
-
-    console.log(txt);*/
-
-
-    $('#tableBody').append('<tr>' +
+    if (idStudent === '') {
+        resultId = $('#tableBody')['0'].childElementCount;
+        $('#tableBody').append('<tr id="student_' + resultId +'">' +
+            '<td>' + resultId + '</td>' +
+            '<td>' + form['0']['1'].value + '</td>' +
+            '<td>' + form['0']['0'].value + '</td>' +
+            '<td>' + form['0']['6'].value + '</td>' +
+            '<td>' + form['0']['2'].value + '</td>' +
+            '<td>' + form['0']['3'].value + '</td>' +
+            '<td>' + form['0']['4'].value + '</td>' +
+            '<td>' + form['0']['5'].value + '</td>' +
+            '<td>' + form['0']['7'].value + '</td>' +
+            '<td>' + form['0']['8'].value + '</td>' +
+            '</tr>');
+    } else {
+    $('#student_' + idStudent).html(
+        '<td>' + idStudent + '</td>' +
         '<td>' + form['0']['1'].value + '</td>' +
         '<td>' + form['0']['0'].value + '</td>' +
         '<td>' + form['0']['6'].value + '</td>' +
@@ -111,8 +126,9 @@ function addEleves(nomForm){
         '<td>' + form['0']['4'].value + '</td>' +
         '<td>' + form['0']['5'].value + '</td>' +
         '<td>' + form['0']['7'].value + '</td>' +
-        '<td>' + form['0']['8'].value + '</td>' +
-        '</tr>');
+        '<td>' + form['0']['8'].value + '</td>'
+        );
+    }
 }
 
 function clearForm(){
