@@ -1,6 +1,7 @@
 body{
-    background-color: #565656;
-    box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);
+    background-color: #EFEFEF;
+    color: #495057;
+    /*box-shadow: inset 0 0 5rem rgba(0, 0, 0, .5);*/
     min-height: 100vh;
 }
 
@@ -14,25 +15,81 @@ span{
     padding-right: 5px;
 }
 
-*[id^="error_"]{
+[id^="error_"]{
     font-size: 10px;
     height: 10px;
-    color: #dc3545;
+    color: #FF3B3F;
+}
+
+.bg-danger {
+    background-color: #FF3B3F!important;
+}
+
+.btn-primary {
+    color: #A9A9A9;
+    background-color: #CAEBF2;
+    border-color: #CAEBF2;
+}
+
+.btn-primary:hover{
+    background-color: #8dd4e3;
+    border-color: #8dd4e3;
 }
 
 .row{
-margin: 10px 0;
+    margin: 10px 0;
+}
+
+.table{
+    background-color: white;
+}
+
+.selectedCss{
+    background-color: lightskyblue;
+}
+
+.form-control:focus{
+    border-color: #CAEBF2;
+}
+
+.form-control::placeholder{
+    color: #A9A9A9;
+}
+
+#container{
+    min-width: 600px;
 }
 
 #tableau{
 max-width: 90%;
+display: none;
 }
 
-.table{
-background-color: white;
+[id^="div_"]{
+    position: relative;
+    width: 580px;
 }
 
-::placeholder { /************************* changer couleur placeholder ******************************************/
-    color: green;
-    opacity: 1;
+#div_street{
+    top: -200px;/*100*/
+}
+
+#div_zip{
+    top: -290px;/*190*/
+}
+
+#div_birthdate{
+    top: -380px;/*280*/
+}
+
+#div_email{
+    top: -470px;/*370*/
+}
+
+#div_phone{
+   top: -560px;/*460*/
+}
+
+#div_submit{
+    top: -650px;/*550*/
 }
