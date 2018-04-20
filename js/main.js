@@ -59,9 +59,9 @@ $('#firstname').click(function(){
 });
 
 //*********  ACTION SUR LE SUBMIT  **********
-var submit_button = $('#submit');
-submit_button.on('click', function(){
-    var temp = '';
+var submit_selector = $('#submit');
+submit_selector.on('click', function(){
+    var temp;
     var error_submit = $('#error_submit');
 
     //on supprime les erreurs affichées
@@ -96,12 +96,12 @@ submit_button.on('click', function(){
         }
     }
 
-    $submit_button.html('Enregistrer');
+    $('#submit').html('Enregistrer');
 
 });
 
 //*********  ANIMATION SUR LE SUBMIT  **********
-submit_button.click(function(){
+submit_selector.click(function(){
     $('#div_submit').animate({left: '450px'},500).fadeOut().animate({left: '0'},10).fadeIn();
 });
 
@@ -127,5 +127,5 @@ $('table').on('click', '#tableBody>tr', function(){
     $('#email').val($(this)[0].children[8].innerText);
     $('#phone').val($(this)[0].children[9].innerText);
 
-    submit_button.html('Mettre à jour');
+    $('#submit').html('Mettre à jour');
 });

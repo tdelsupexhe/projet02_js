@@ -75,25 +75,25 @@ display: none;
 }
 
 #div_street{
-    top: -200px;/*100*/
+    top: -200px;
 }
 
 #div_zip{
-    top: -290px;/*190*/
+    top: -290px;
 }
 
 #div_birthdate{
-    top: -380px;/*280*/
+    top: -380px;
 }
 
 #div_email{
-    top: -470px;/*370*/
+    top: -470px;
 }
 
 #div_phone{
-   top: -560px;/*460*/
+   top: -560px;
 }
 
 #div_submit{
-    top: -650px;/*550*/
+    top: -650px;
 }
